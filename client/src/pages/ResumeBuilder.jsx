@@ -2,34 +2,11 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
-interface ResumeData {
-  _id?: string
-  title: string
-  personalInfo: {
-    name: string
-    email: string
-    phone: string
-    address: string
-  }
-  experience: Array<{
-    company: string
-    position: string
-    startDate: string
-    endDate: string
-    description: string
-  }>
-  education: Array<{
-    school: string
-    degree: string
-    startDate: string
-    endDate: string
-  }>
-  skills: string[]
-}
+
 
 export function ResumeBuilder() {
   const { id } = useParams()
-  const [resumeData, setResumeData] = useState<ResumeData>({
+  const [resumeData, setResumeData] = useState({
     title: 'My Resume',
     personalInfo: {
       name: '',
@@ -73,7 +50,7 @@ export function ResumeBuilder() {
     }
   }
 
-  const updatePersonalInfo = (field: string, value: string) => {
+  const updatePersonalInfo = (field, value) => {
     setResumeData(prev => ({
       ...prev,
       personalInfo: {

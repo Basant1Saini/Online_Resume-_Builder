@@ -11,5 +11,9 @@ export default defineConfig({
         changeOrigin: true
       }
     }
+  },
+  esbuild: {
+    loader: 'jsx',
+    include: /src\/.*\.[jt]sx?$/
   }
 })

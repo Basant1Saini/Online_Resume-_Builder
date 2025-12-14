@@ -2,15 +2,10 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
-interface Resume {
-  _id: string
-  title: string
-  createdAt: string
-  updatedAt: string
-}
+
 
 export function Dashboard() {
-  const [resumes, setResumes] = useState<Resume[]>([])
+  const [resumes, setResumes] = useState([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
